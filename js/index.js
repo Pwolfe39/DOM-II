@@ -12,11 +12,11 @@
 // changes the color of h1 fun bus 
 let logoHeadingColor = document.querySelector('.logo-heading');
 logoHeadingColor.addEventListener('click', () => {
-   if(logoHeadingColor.style.color == 'red') {
-       logoHeadingColor.style.color = 'blue';
-   } else {
-       logoHeadingColor.style.color = 'red';
-   }
+    if (logoHeadingColor.style.color == 'red') {
+        logoHeadingColor.style.color = 'blue';
+    } else {
+        logoHeadingColor.style.color = 'red';
+    }
 });
 console.log(logoHeadingColor);
 
@@ -24,8 +24,8 @@ console.log(logoHeadingColor);
 let dbl_returnClick = 'dblclick'
 const dbl_click = document.querySelector('div header h2');
 dbl_click.addEventListener('dblclick', event => {
-    if(dbl_click == dbl_click ) {
-    dbl_click.style.fontFamily = 'Roboto';
+    if (dbl_click == dbl_click) {
+        dbl_click.style.fontFamily = 'Roboto';
     } else {
         dbl_click.style.color = 'Sans';
     }
@@ -34,9 +34,9 @@ dbl_click.addEventListener('dblclick', event => {
 // mouseover changes the size to h2's let's go 
 const mouse_over = document.querySelector('section div h2');
 mouse_over.addEventListener('mouseover', () => {
-    if(mouse_over >= '3.0rem') {
-    mouse_over.style.fontSize = '4rem';
-    } else  {
+    if (mouse_over >= '3.0rem') {
+        mouse_over.style.fontSize = '4rem';
+    } else {
         mouse_over.style.fontSize = '3.2rem';
     }
 });
@@ -49,26 +49,54 @@ mouse_out.addEventListener('mouseout', () => {
 });
 console.log(mouse_out);
 
-//
-const 
+//mousedown adds a border to all images
+const mouse_down = document.querySelectorAll('img');
+mouse_down.forEach(e => {
+    e.addEventListener('mousedown', event => event.target.style.border = '5px solid dodgerblue');
+});
+//mouseup exits displaying the border
+const mouse_up = document.querySelectorAll('img');
+mouse_down.forEach(e => {
+    e.addEventListener('mouseup', event => event.target.style.border = 'none');
+});
 
-// use the wheel event to display whatever I want while the page is being scrolled
 
-// const mouse_down = document.querySelectorAll('.navlink');
-// mouse_down.addEventListener('mousedown', function() {
-//     mouse_down.style.color = 'red';
+
+
+// add a light colored background to the all three trip packages
+let key_down = document.querySelectorAll('.content-pick .destination');
+key_down = Array.from(key_down);
+key_down.forEach(e => {
+    e.addEventListener('mouseenter', event => {
+        event.target.style.backgroundColor = 'gray';
+        event.target.style.border = '5px solid black';
+        console.log(`mouse_enter`);
+    });
+
+});
+
+// change the color of the background with mouseleave then add and remove the black border with mouse enter then mouseleave
+key_down.forEach(e => {
+    e.addEventListener('mouseleave', event => {
+        event.target.style.backgroundColor = 'initial';
+        event.target.style.border = 'none';
+        console.log(`mouse_leave`);
+    });
+
+});
+
+// right click to change the border of the buttons
+context_menu = document.querySelectorAll('.btn');
+context_menu.forEach(e => {
+    e.addEventListener('contextmenu', event => {
+        event.target.style.border = '5px solid darkblue';
+        console.log(context_menu);
+    });
     
-// });
-// console.log(Array.from(mouse_down));
+});
 
-// const mouse_down = '';
-// const mouse_down = document.querySelectorAll('img');
-// mouse_down.forEach( (element) =>  {
-//     element.addEventListener('click', event => {
-//         if(event.target == mouse_down) {
-
-//         }
-//     });
-   
-//     console.log(element);
-// });
+// wheel
+mouse_wheel = document.querySelector('body');
+mouse_wheel.addEventListener('wheel', event => {
+    event.target.style.backgroundColor = ' #fbd3a6';
+});
